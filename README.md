@@ -15,8 +15,7 @@ Destination IP or the Destination Port number at which the TCP, UDP, or ICMP ser
 2. Installation:
 -----------------
 a. MININET:
-   The Mininet is an emulation tool required to create a topology. use the following commands on a Linux-ubuntu machine
-to install the mininet application.
+   The Mininet is an emulation tool required to create a topology. use the following commands on a Linux-ubuntu machine to install the mininet application.
 	
    	- Steps to install Mininet:
 	1) Open the terminal on your Linux Ubuntu18 virtual machine
@@ -71,8 +70,9 @@ b. Load a topology in the mininet:
 		 --mac --switch=ovsk,protocols=OpenFlow13'
 
 
-c. Start the Program by copying the 'RYU_SDN_FirewallApplication.py' file into ryu directory, Make sure that the entries in the 
-   Entries.csv file has been filled already correctly, as mentioned in step-a. To run the program do following
+c. Start the Program by copying the 'RYU_SDN_FirewallApplication.py' file into ryu directory:
+
+	Make sure that the entries in the Entries.csv file has been filled already correctly, as mentioned in step-a. To run the program do following
 	1) 'cd ryu' go to the ryu directory where the 'RYU_SDN_FirewallApplication.py' file is present
 	2) Run the Firewall application using the following command: 'ryu-manager RYU_SDN_FirewallApplication.py'
 		This will start the firewall application, which will block all the traffic inputted in the Entries.csv file.
@@ -82,31 +82,31 @@ c. Start the Program by copying the 'RYU_SDN_FirewallApplication.py' file into r
 ------------------------
 Finally, the user can test if the firewall is running correctly and if the traffic is blocking or not, Following are some helpful commands;
 
-1. ICMP: User may send ICMP traffic between two hosts in mininet using the command:
-   use : 'h1 ping h2'
+	1. ICMP: User may send ICMP traffic between two hosts in mininet using the command:
+	   use : 'h1 ping h2'
 
-2. Direct TCP: User may use iperf command which finds you the TCP bandwidth between the two users:
-   use : ' iperf h1 h2' 
+	2. Direct TCP: User may use iperf command which finds you the TCP bandwidth between the two users:
+	   use : ' iperf h1 h2' 
 
-3. UDP and TCP: User may create the UDP traffic by logging into two nodes with the help of xterm and then create a server and make the request:
-   - For opening the nodes use: xterm h1 h2
+	3. UDP and TCP: User may create the UDP traffic by logging into two nodes with the help of xterm and then create a server and make the request:
+	   - For opening the nodes use: xterm h1 h2
 
-   - To start the TCP server on host while inside the host type: iperf -s -i 1
+	   - To start the TCP server on host while inside the host type: iperf -s -i 1
 
-   - To start TCP server on particular port use: iperf -s -i -p <port number>
-					Example: iperf -s -i 1 -p 5008 (here server listens on port 5008)
-   
-   - To start the UDP server on host while inside the host type: iperf -s -u -i 1
-   
-   - To start TCP server on particular port use: iperf -s -i -p <port number>
-					Example: iperf -s -i 1 -u -p 5010 (here server listens on port 5010)
+	   - To start TCP server on particular port use: iperf -s -i -p <port number>
+						Example: iperf -s -i 1 -p 5008 (here server listens on port 5008)
 
-   - To send the Iperf traffic on the running server use command:
-	For TCP : iperf -c <ip of the destination host> -p <Destination port on which server is listining>
-		Example : iperf -c 10.0.0.2 -p 5008  (to send traffic to host 10.0.0.2 listening on port 5008) 
+	   - To start the UDP server on host while inside the host type: iperf -s -u -i 1
 
-	For UDP : iperf -c <ip of the destination host> -u -p <Destination port on which server is listining>
-		Example : iperf -c 10.0.0.2 -u -p 5010 (to send traffic to host 10.0.0.2 listening on port 5010) 
+	   - To start TCP server on particular port use: iperf -s -i -p <port number>
+						Example: iperf -s -i 1 -u -p 5010 (here server listens on port 5010)
+
+	   - To send the Iperf traffic on the running server use command:
+		For TCP : iperf -c <ip of the destination host> -p <Destination port on which server is listining>
+			Example : iperf -c 10.0.0.2 -p 5008  (to send traffic to host 10.0.0.2 listening on port 5008) 
+
+		For UDP : iperf -c <ip of the destination host> -u -p <Destination port on which server is listining>
+			Example : iperf -c 10.0.0.2 -u -p 5010 (to send traffic to host 10.0.0.2 listening on port 5010) 
 
 
 Using the above commands the user can test the complete topology and test the working of the firewall.
