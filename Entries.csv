@@ -1,0 +1,8 @@
+ID,SRC_IP,DEST_IP/Dest_port,Blocked Service,,Comment
+1,10.0.0.1,10.0.0.2,ICMP,,ICMP is blocked TCP/UDP (iperf) is working
+2,10.0.0.2,10.0.0.3,TCP,,TCP (iperf) is blocked UDP/ICMP (iperf) is working
+3,10.0.0.3,10.0.0.4,TCP,,TCP (iperf) and ICMP for h2 to h4 is blocked
+4,10.0.0.3,10.0.0.4,ICMP,,TCP (iperf) and ICMP for h2 to h4 is blocked
+5,10.0.0.1,10.0.0.2,UDP,,Host 1 will send the UDP traffic but host 2 wont receive it
+6,,5008,UDP,,UDP (iperf) traffic destined to this port will be dropped
+7,,5010,TCP,,TCP (iperf) yraffic is blocked for this destination port 
